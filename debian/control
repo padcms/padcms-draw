@@ -1,0 +1,13 @@
+Source: padcmsdraw
+Section: utils
+Priority: optional
+Maintainer: Mikhail Kotov <mkhlktv@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~), make, pkg-config, gcc, coreutils, binutils, tar, libfreetype6-dev, libjbig2dec-dev|libjbig2dec0-dev, libopenjpeg-dev, libjpeg8-dev|libjpeg62-dev, zlib1g-dev
+Standards-Version: 3.8.4
+
+Package: padcmsdraw
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: Commmand line pdf tool
+ This package contains command line tool using the MuPDF library to render pages to image files
+ and to convert pdf to JSON-file.

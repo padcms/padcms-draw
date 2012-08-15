@@ -1,0 +1,2 @@
+shlibs:Depends=libc6 (>= 2.7), libfreetype6 (>= 2.3.9), libjbig2dec0, libjpeg8, libopenjpeg2, zlib1g (>= 1:1.2.0)
+misc:Depends=

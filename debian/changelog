@@ -1,0 +1,5 @@
+padcmsdraw (1.0-1) stable; urgency=low
+
+  * First release of padcmsdraw with debian package.
+
+ -- Mikhail Kotov <mkhlktv@gmail.com>  Mon, 06 Aug 2012 10:28:01 +0200
