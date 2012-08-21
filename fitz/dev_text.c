@@ -737,7 +737,7 @@ fz_print_text_page_json(fz_context *ctx, FILE *out, fz_text_page *page, fz_link 
 	int i, n;
 	
 	fprintf(out,"\n{\n  \"width\":\"%g\",\n  \"height\":\"%g\",\n  \"text\":\"",
-				page->mediabox.x1 + 1, page->mediabox.y1 + 1);// (0...x1) -> (1...x1+1)
+				page->mediabox.x1, page->mediabox.y1);
 	
 	for (block = page->blocks; block < page->blocks + page->len; block++)
 	{
@@ -752,9 +752,7 @@ fz_print_text_page_json(fz_context *ctx, FILE *out, fz_text_page *page, fz_link 
 						putc(utf[i], out);
 				}
 			}
-			//fprintf(out, "\n");
 		}
-		//fprintf(out, "\n");
 	}
 	fprintf(out,"\",\n  \"zones\":[\n");
 	curLink = links;
@@ -770,9 +768,9 @@ fz_print_text_page_json(fz_context *ctx, FILE *out, fz_text_page *page, fz_link 
 			fprintf(out,"    {\n");			
 			fprintf(out,"      \"uri\":\"%s\",\n",curLink->dest.ld.uri.uri);
 			fprintf(out,"      \"llx\":\"%g\",\n",curLink->rect.x0);
-			fprintf(out,"      \"lly\":\"%g\",\n",curLink->rect.y0);
+			fprintf(out,"      \"lly\":\"%g\",\n",page->mediabox.y1-curLink->rect.y0);
 			fprintf(out,"      \"urx\":\"%g\",\n",curLink->rect.x1);
-			fprintf(out,"      \"ury\":\"%g\"\n",curLink->rect.y1);
+			fprintf(out,"      \"ury\":\"%g\"\n",page->mediabox.y1-curLink->rect.y1);
 			fprintf(out,"    }");
 		}
 		curLink = curLink->next;
